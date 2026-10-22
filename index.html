@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ระบบ ระบบเบิกจ่ายอุปกรณ์</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+    <script>
+      $(document).ready(function(){
+          $.post("show_equipment.php")
+          .done(function(zone_word){
+              if(zone_word!="" || zone_word!=null){
+                  $("#zone_word").html(zone_word);
+              }else{}
+          })
+      });
+    </script>
+
+    <script>
+      $(document).ready(function(){
+        const butt_show=document.getElementById("butt_show");
+        butt_show?.addEventListener("click",function(){
+          if(this.id==="butt_show"){
+            $.post("show_equipment.php")
+            .done(function(zone_word){
+                if(zone_word!="" || zone_word!=null){
+                    $("#zone_word").html(zone_word);
+                }else{}
+            })
+          }
+        })
+      })
+    </script>
+
+    <script>
+      $(document).ready(function(){
+        const butt_tx=document.getElementById("butt_tx");
+        butt_tx?.addEventListener("click",function(){
+          if(this.id==="butt_tx"){
+            $.post("form_equipment.php")
+            .done(function(zone_word){
+                if(zone_word!="" || zone_word!=null){
+                    $("#zone_word").html(zone_word);
+                }else{}
+            })
+          }
+        })
+      })
+    </script>
+
+
+</head>
+<body>
+
+<div class="container-fluid p-5 bg-primary text-white text-center">
+  <h1>ระบบเบิกจ่ายอุปกรณ์</h1>
+</div>
+
+<div class="container">
+
+  <fieldset class="mt-3 mp-3">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-lg-12 col-xxl-12">
+          <div class="btn-group">
+            <button type="button" name="butt_show" id="butt_show" class="btn btn-primary">แสดงรายการอุปกรณ์</button>
+            <button type="button" name="butt_tx" id="butt_tx" class="btn btn-primary">ขอเบิกอุปกรณ์</button>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+
+  <div id="zone_word">
+    <fieldset class="mt-3 mp-3">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-lg-12 col-xxl-12">
+            <div>กำหนดโหลดข้อมูล</div>
+        </div>
+      </div>
+    </fieldset>    
+  </div>
+
+
+
+
+</div>
+
+
+  
+
+
+
+
+</body>
+</html>
